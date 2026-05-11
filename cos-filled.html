@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhilRice HRIS</title>
+    <link rel="stylesheet" href="cos-filled.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="cos-page">
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/PhilRice-Logo.png" alt="PhilRice Logo">
+                <div class="logo-text">HRIS</div>
+                <div class="logo-subtitle">HUMAN RESOURCES<br>INFORMATION SYSTEM</div>
+            </div>
+            <nav class="nav-menu">
+                <div class="menu-section-header">Menu</div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/dashboard1.png">
+                    <span><a href="index.html">Dashboard</a></span>
+                </div>
+                
+                <div class="has-dropdown active-parent">
+                    <div class="menu-header" onclick="toggleDropdown(this)">
+                        <div class="icon-box">
+                            <img src="img/cos1.png">
+                        </div>
+                        <span><a href="cos.html">COS</a></span>
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    
+                    <div class="submenu">
+                        <div class="submenu-item active">
+                            <div class="icon-box">
+                                <img src="img/filled1.png">
+                            </div>
+                            <span>Filled</span>
+                        </div>
+                        <div class="submenu-item">
+                            <div class="icon-box">
+                                <img src="img/vacant2.png">
+                            </div>
+                            <span><a href="cos-vacant.html">Vacant</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/jo1.png">
+                    <span><a href="jo.html">Job Order</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/ticket1.png">
+                    <span><a href="booking.html">Booking</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/calendar1.png">
+                    <span><a href="calendar.html">Calendar</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/bell.png">
+                    <span><a href="notifications.html">Notifications</a></span>
+                </div>
+
+                <div class="menu-section-header">Account</div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/user1.png">
+                    <span><a href="user.html">Account</a></span>
+                </div>
+                <!-- <div class="nav-item">
+                    <img class="icon-box" src="img/signout.png">
+                    <span><a href="#">Sign Out</a></span>
+                </div> -->
+            </nav>
+        </aside>
+
+        <!-- Header -->
+        <div class="page-header">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span class="header-text">HRIS</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span class="header-text">Contract of Service (FILLED)</span>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search for a Station..." id="station-search">
+                    </div>
+                    <button class="export-btn" onclick="exportToPDF()">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>EXPORT TO PDF</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI Cards -->
+        <main class="main-content">
+            <div class="stats-grid">
+                <div class="card">
+                    <div class="card-title">TOTAL ATH</div>
+                    <div class="card-body">
+                        <img src="img/ath.png" class="nav-card-icon">
+                        <span class="number">2,060</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">TOTAL HIRED</div>
+                    <div class="card-body">
+                        <img src="img/hired1.png" class="nav-card-icon">
+                        <span class="number">1,713</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">VACANT</div>
+                    <div class="card-body">
+                        <img src="img/vacant.png" class="nav-card-icon">
+                        <span class="number">347</span>
+                    </div>
+                </div>
+              
+                <div class="card">
+                    <div class="card-title">MALE</div>
+                    <div class="card-body">
+                        <img src="img/male.png" class="nav-card-icon">
+                        <span class="number">1,019</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">FEMALE</div>
+                    <div class="card-body">
+                        <img src="img/female.png" class="nav-card-icon">
+                        <span class="number">616</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Date Filter -->
+            <div class="date-picker-container">
+                <div class="date-picker">
+                    <label>Start Date:</label>
+                    <div class="date-input-wrapper">
+                        
+                        <input type="date" id="start-date">
+                    </div>
+                </div>
+                <div class="date-picker">
+                    <label>End Date:</label>
+                    <div class="date-input-wrapper">
+                        
+                        <input type="date" id="end-date">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tables and Graphs -->
+            <div class="main-data-card">
+                <div class="metrics-chart">
+                    <div class="ath-container">
+                        <div class="ath-header">
+                            <div class="ath-title">2025 Authority to Hire</div>
+                            <div class="ath-subtitle">
+                                <span>PHILIPPINE RICE RESEARCH INSTITUTE (PHILRICE)</span>
+                                <br>
+                                <span>CONTRACT OF SERVICE (COS) FILLED</span>
+                            </div>
+                        </div>
+
+                        <div class="ath-grid">
+                            <div class="grid-label metrics">METRICS</div>
+
+                            <div class="cell green-1">CES<br><strong>46.42%</strong></div>
+                            <div class="cell green-2">AGUSAN<br><strong>7.81%</strong></div>
+                            <div class="cell green-3">BATAC<br><strong>5.27%</strong></div>
+                            <div class="cell green-4">NEGROS<br><strong>8.98%</strong></div>
+                            <div class="cell green-5">MIDSAYAP<br><strong>8.59%</strong></div>
+
+                            <div class="grid-label utilization">UTILIZATION RATE</div>
+
+                            <div class="cell total-hired">TOTAL HIRED<br><strong>91.91%</strong></div>
+
+                            <div class="cell green-6">ISABELA<br><strong>6.45%</strong></div>
+                            <div class="cell green-7">BICOL<br><strong>3.45%</strong></div>
+                            <div class="cell green-8">CMU<br><strong>2.08%</strong></div>
+                            <div class="cell green-9">LOS BAÑOS<br><strong>9.77%</strong></div>
+                            <div class="cell green-10">SAMAR<br><strong>1.17%</strong></div>
+
+                            <div class="cell vacant">VACANT<br><strong>8.09%</strong></div>
+                        </div>
+                        <p class="table-note">This chart shows the distribution of hired Contract of Service (COS) personnel by station. Percentages indicate each station's share of the total hired COS personnel.</p>
+                    </div>
+                </div>
+
+                <div class="middle-container2">
+                    <div class="table-header-title">Contract of Service: Filled Count by (Fund Class and Station)</div>
+                    <div class="cos-graph-container">
+                        <div class="cos-graph-panel">
+                            <div class="cos-graph-content">
+                                <canvas id="filledCountChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr><th>STATIONS</th><th>CORPO</th><th>TRUST</th><th>BDD</th><th>RCEF</th><th>NRP</th><th>TOTAL</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>CES</td><td>395</td><td>117</td><td>38</td><td>163</td><td> </td><td>713</td></tr>
+                                <tr><td>AGUSAN</td><td>49</td><td>2</td><td>23</td><td>46</td><td> </td><td>120</td></tr>
+                                <tr><td>BATAC</td><td>44</td><td>1</td><td>9</td><td>27</td><td> </td><td>81</td></tr>
+                                <tr><td>BICOL</td><td>43</td><td>4</td><td>5</td><td>1</td><td> </td><td>53</td></tr>
+                                <tr><td>CMU</td><td> </td><td> </td><td> </td><td> </td><td> </td><td>32</td></tr>
+                                <tr><td>ISABELA</td><td>36</td><td>3</td><td>19</td><td>41</td><td> </td><td>99</td></tr>
+                                <tr><td>LOS BAÑOS</td><td>86</td><td> </td><td>22</td><td>31</td><td>11</td><td>150</td></tr>
+                                <tr><td>MIDSAYAP</td><td>53</td><td>4</td><td>38</td><td>37</td><td> </td><td>132</td></tr>
+                                <tr><td>NEGROS</td><td>45</td><td>4</td><td>31</td><td>58</td><td> </td><td>138</td></tr>
+                                <tr><td>SAMAR</td><td>1</td><td> </td><td>17</td><td> </td><td> </td><td>18</td></tr>
+                                <tr><td>TOTAL</td><td>752</td><td>135</td><td>234</td><td>404</td><td>11</td><td>1,536</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="table-note">This chart shows the distribution of hired Contract of Service (COS) personnel by station. Percentages indicate each station's share of the total hired COS personnel.</p>
+
+                    <div class="table-header-title">Contract of Service: Filled Cost by (Fund Class and Station)</div>
+                    <br>
+                    <div class="table-wrapper">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr><th>STATIONS</th><th>CORPO</th><th>TRUST</th><th>BDD</th><th>RCEF</th><th>NRP</th><th>TOTAL</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>CES</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>AGUSAN</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>BATAC</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>BICOL</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>CMU</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>ISABELA</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>LOS BAÑOS</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>MIDSAYAP</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>NEGROS</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>SAMAR</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>TOTAL</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="table-note">This chart shows the distribution of hired Contract of Service (COS) personnel by station. 
+                        Percentages indicate each station’s share of the total hired COS personnel.
+                    </p> 
+                </div>
+            </div>
+
+            <div class="main-data-card">
+                <div class="metrics-chart">
+                    <div class="ath-container">
+                        <div class="ath-header">
+                            <div class="ath-title1">Demographics</div>
+                            <div class="ath-subtitle1">
+                                <span>PHILIPPINE RICE RESEARCH INSTITUTE (PHILRICE)</span>
+                                <br>
+                                <span>UNIQUE (MALE & FEMALE)</span>
+                            </div>
+                        </div>
+
+                        <div class="middle-container1">
+                            <div class="inner-panel">
+                                <div class="table-header-title">MALE & FEMALE BY SECTOR</div>
+                                <div class="table-wrapper">
+                                    <table class="dashboard-table">
+                                        <thead>
+                                            <tr>
+                                                <th>SECTOR</th>
+                                                <th>MALE</th>
+                                                <th>FEMALE</th>
+                                                <th>TOTAL</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td class="bold-cell">GASS</td><td>110</td><td>84</td><td>194</td></tr>
+                                            <tr><td class="bold-cell">RESEARCH</td><td>243</td><td>146</td><td>389</td></tr>
+                                            <tr><td class="bold-cell">DEVELOPMENT</td><td>52</td><td>37</td><td>89</td></tr>
+                                            <tr><td class="bold-cell">UNIT/OFFICE</td><td>9</td><td>9</td><td>18</td></tr>
+                                            <tr><td class="bold-cell">RCEF</td><td>24</td><td>29</td><td>53</td></tr>
+                                            <tr class="totalhired"><td>TOTAL</td><td>438</td><td>305</td><td>743</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="inner-panel">
+                                <div class="table-header-title">AGE GROUP BY SECTOR</div>
+                                <div class="table-wrapper">
+                                    <table class="dashboard-table">
+                                        <thead>
+                                            <tr>
+                                                <th>SECTOR</th>
+                                                <th>21-24</th>
+                                                <th>25-34</th>
+                                                <th>35-44</th>
+                                                <th>45-54</th>
+                                                <th>55-64</th>
+                                                <th>65+</th>
+                                                <th>TOTAL</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td class="bold-cell">GASS</td><td>10</td><td>98</td><td>44</td><td>31</td><td>17</td><td>1</td><td>201</td></tr>
+                                            <tr><td class="bold-cell">RESEARCH</td><td>17</td><td>179</td><td>85</td><td>54</td><td>33</td><td>10</td><td>378</td></tr>
+                                            <tr><td class="bold-cell">DEVELOPMENT</td><td>6</td><td>54</td><td>19</td><td>8</td><td>2</td><td>0</td><td>89</td></tr>
+                                            <tr><td class="bold-cell">UNIT/OFFICE</td><td>1</td><td>15</td><td>1</td><td>1</td><td>0</td><td>0</td><td>18</td></tr>
+                                            <tr><td class="bold-cell">RCEF</td><td>3</td><td>48</td><td>2</td><td>0</td><td>0</td><td>0</td><td>53</td></tr>
+                                            <tr class="totalhired"><td>TOTAL</td><td>37</td><td>394</td><td>151</td><td>94</td><td>52</td><td>11</td><td>739</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="table-note">This chart shows the demographic distribution of Contract of Service (COS) personnel by sector and age group.</p>
+                    </div>
+                </div>
+
+                <div class="middle-container2">
+                    <div class="table-header-title">WORKFORCE DIVERSITY (AGE GROUP AND SEX DISTRIBUTION BY DIVISION)</div>
+                    <div class="table-container">
+                        <table class="dashboard-table">
+
+                        <!-- TOP TOTAL -->
+                        <tr class="top-total">
+                            <th>TOTAL</th>
+                            <th colspan="2">33</th>
+                            <th colspan="2">397</th>
+                            <th colspan="2">152</th>
+                            <th colspan="2">94</th>
+                            <th colspan="2">51</th>
+                            <th colspan="2">12</th>
+                            <th>739</th>
+                        </tr>
+
+                        <!-- AGE GROUPS -->
+                        <tr class="age-group">
+                            <th rowspan="2">DIVISION</th>
+                            <th colspan="2">21-24</th>
+                            <th colspan="2">25-34</th>
+                            <th colspan="2">35-44</th>
+                            <th colspan="2">45-54</th>
+                            <th colspan="2">55-64</th>
+                            <th colspan="2">65 & Above</th>
+                            <th rowspan="2">TOTAL</th>
+                        </tr>
+
+                        <tr class="sub-header">
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                        </tr>
+
+                        <tr>
+                            <td>CES</td>
+                            <td>1</td><td>4</td>
+                            <td>2</td><td>9</td>
+                            <td>2</td><td>2</td>
+                            <td>2</td><td>0</td>
+                            <td>0</td><td>1</td>
+                            <td>0</td><td>0</td>
+                            <td>23</td>
+                        </tr>
+
+                        <tr>
+                            <td>AGUSAN</td>
+                            <td>0</td><td>0</td>
+                            <td>10</td><td>9</td>
+                            <td>7</td><td>1</td>
+                            <td>9</td><td>1</td>
+                            <td>6</td><td>1</td>
+                            <td>0</td><td>0</td>
+                            <td>44</td>
+                        </tr>
+
+                        <tr>
+                            <td>BATAC</td>
+                            <td>1</td><td>0</td>
+                            <td>2</td><td>13</td>
+                            <td>0</td><td>2</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>18</td>
+                        </tr>
+
+                        <tr>
+                            <td>BICOL</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td>
+                        </tr>
+
+                        <tr>
+                            <td>CMU</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td>
+                        </tr>
+
+                        <tr>
+                            <td>ISABELA</td>
+                            <td>0</td><td>0</td>
+                            <td>10</td><td>9</td>
+                            <td>7</td><td>1</td>
+                            <td>9</td><td>1</td>
+                            <td>6</td><td>1</td>
+                            <td>0</td><td>0</td>
+                            <td>44</td>
+                        </tr>
+
+                        <tr>
+                            <td>LOS BAÑOS</td>
+                            <td>2</td><td>0</td>
+                            <td>4</td><td>14</td>
+                            <td>1</td><td>1</td>
+                            <td>0</td><td>1</td>
+                            <td>1</td><td>1</td>
+                            <td>0</td><td>0</td>
+                            <td>25</td>
+                        </tr>
+
+                        <tr>
+                            <td>MIDSAYAP</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>1</td>
+                        </tr>
+
+                        <tr>
+                            <td>NEGROS</td>
+                            <td>0</td><td>0</td>
+                            <td>1</td><td>3</td>
+                            <td>1</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>4</td>
+                        </tr>
+
+                        <tr>
+                            <td>SAMAR</td>
+                            <td>0</td><td>0</td>
+                            <td>1</td><td>1</td>
+                            <td>1</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>3</td>
+                        </tr>
+
+                        <!-- SUBTOTAL -->
+                        <tr class="subtotal">
+                            <td>SUBTOTAL</td>
+                            <td>15</td><td>18</td>
+                            <td>187</td><td>210</td>
+                            <td>113</td><td>39</td>
+                            <td>73</td><td>21</td>
+                            <td>47</td><td>4</td>
+                            <td>9</td><td>3</td>
+                            <td>739</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/cos-filled-charts.js"></script>
+    <script src="js/cosfillexport.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhilRice HRIS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="container">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/PhilRice-Logo.png" alt="PhilRice Logo">
+                <div class="logo-text">HRIS</div>
+                <div class="logo-subtitle">HUMAN RESOURCES<br>INFORMATION SYSTEM</div>
+            </div>
+            <nav class="nav-menu">
+                <div class="menu-section-header">Menu</div>
+                <div class="nav-item active">
+                    <img class="icon-box" src="img/dashboard1.png">
+                    <span>Dashboard</span>
+                </div>
+                
+                <div class="has-dropdown">
+                    <div class="menu-header" onclick="toggleDropdown(this)">
+                        <div class="icon-box">
+                            <img src="img/cos1.png">
+                        </div>
+                        <span><a href="cos.html">COS</a></span>
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    
+                    <div class="submenu">
+                        <div class="submenu-item">
+                            <div class="icon-box">
+                                <img src="img/filled1.png">
+                            </div>
+                            <span><a href="cos-filled.html">Filled</a></span>
+                        </div>
+                        <div class="submenu-item">
+                            <div class="icon-box">
+                                <img src="img/vacant2.png">
+                            </div>
+                            <span><a href="cos-vacant.html">Vacant</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/jo1.png">
+                    <span><a href="jo.html">Job Order</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/ticket1.png">
+                    <span><a href="booking.html">Booking</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/calendar1.png">
+                    <span><a href="calendar.html">Calendar</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/bell.png">
+                    <span><a href="notifications.html">Notifications</a></span>
+                </div>
+
+                <div class="menu-section-header">Account</div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/user1.png">
+                    <span><a href="user.html">Account</a></span>
+                </div>
+                <!-- <div class="nav-item">
+                    <img class="icon-box" src="img/signout.png">
+                    <span><a href="#">Sign Out</a></span>
+                </div> -->
+            </nav>
+        </aside>
+
+        <!-- Header -->
+        <div class="page-header">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span class="header-text">HRIS</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span class="header-text">Dashboard</span>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search..." id="station-search">
+                    </div>
+                    <button class="export-btn" onclick="exportToPDF()">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>EXPORT TO PDF</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI Cards -->
+        <main class="main-content">
+            <div class="stats-grid">
+                <div class="card">
+                    <div class="card-title">TOTAL ATH</div>
+                    <div class="card-body">
+                        <img src="img/ath.png" class="nav-card-icon">
+                        <span class="number" id="kpi-ath">0</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">TOTAL HIRED</div>
+                    <div class="card-body">
+                        <img src="img/hired1.png" class="nav-card-icon">
+                        <span class="number" id="kpi-hired">0</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">VACANT</div>
+                    <div class="card-body">
+                        <img src="img/vacant.png" class="nav-card-icon">
+                        <span class="number" id="kpi-vacant">0</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">JOB ORDER</div>
+                    <div class="card-body">
+                        <img src="img/jo.png" class="nav-card-icon">
+                        <span class="number" id="kpi-jo">0</span>
+                    </div>
+                    <p class="note"><i>Note: Count excluded from the TOTAL ATH</i></p>
+                </div>
+            </div>
+
+            <!-- Date Filter -->
+            <div class="date-picker-container">
+                <div class="date-picker">
+                    <label>Start Date:</label>
+                    <div class="date-input-wrapper">
+                        
+                        <input type="date" id="start-date">
+                    </div>
+                </div>
+                <div class="date-picker">
+                    <label>End Date:</label>
+                    <div class="date-input-wrapper">
+                        
+                        <input type="date" id="end-date">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tables and Graphs -->
+            <div class="main-data-card">
+                <!-- Hired Personnel Section -->
+                <div class="middle-container">
+                    <div class="inner-panel table-panel">
+                        <div class="table-header-title">HIRED PERSONNEL (Contract of Service)</div>
+                        <div class="table-wrapper">
+                            <table class="dashboard-table">
+                                <thead>
+                                    <tr><th>STATIONS</th><th>FILLED</th></tr>
+                                </thead>
+                                <tbody id="filled-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="cos-graph-container">
+                        <div class="cos-graph-panel">
+                            <div class="cos-graph-content">
+                                <canvas id="hiredChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="table-note">This chart shows the distribution of hired Contract of Service (COS) personnel by station.
+                    Percentages indicate each station's share of the total hired COS personnel.
+                </p> <br>
+
+                <!-- Vacant Positions Section -->
+                <div class="middle-container">
+                    <div class="inner-panel">
+                        <div class="table-header-title">VACANT POSITIONS (Contract of Service)</div>
+                        <div class="table-wrapper">
+                            <table class="dashboard-table">
+                                <thead>
+                                    <tr><th>STATIONS</th><th>VACANT</th></tr>
+                                </thead>
+                                <tbody id="vacant-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="cos-graph-container">
+                        <div class="cos-graph-panel">
+                            <div class="cos-graph-content">
+                                <canvas id="vacantChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="table-note">This chart shows the distribution of vacant Contract of Service (COS) positions by station.
+                    Percentages indicate each station's share of the total vacant COS positions.
+                </p>
+            </div>
+
+            <div class="main-data-card">
+                <div class="triple-table-container">
+
+                    <div class="table-sub-section">
+                        <div class="table-header-box">CONTRACT OF SERVICE</div>
+                        <div class="scroll-wrapper">
+                            <table class="philrice-table">
+                                <thead>
+                                    <tr><th>STATIONS</th><th>MALE</th><th>FEMALE</th><th>TOTAL</th></tr>
+                                </thead>
+                                <tbody id="cos-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                <div class="table-sub-section">
+                    <div class="table-header-box">JOB ORDER</div>
+                    <div class="scroll-wrapper">
+                        <table class="philrice-table">
+                            <thead>
+                                <tr><th>STATIONS</th><th>MALE</th><th>FEMALE</th><th>TOTAL</th></tr>
+                            </thead>
+                            <tbody id="jo-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="table-sub-section">
+                    <div class="table-header-box">WORKFORCE DIVERSITY</div>
+                    <div class="scroll-wrapper">
+                        <table class="philrice-table">
+                            <thead>
+                                <tr><th>STATIONS</th><th>MALE</th><th>FEMALE</th><th>TOTAL</th></tr>
+                            </thead>
+                            <tbody id="diversity-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                <p class="table-note">These tables present the sex distribution of Contract of Service (COS) and Job Order (JO) personnel
+                    by station for the reporting period as of March 31, 2026.
+                </p>
+            </div>
+         </main>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/dashexport.js"></script>
+
+</body>
+</html>

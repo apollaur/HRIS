@@ -1,0 +1,474 @@
+[
+  {
+    "Position": "ACCOUNTANT I",
+    "21-24": 1, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ACCOUNTANT II",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ACCOUNTANT III",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ACCOUNTING CLERK II",
+    "21-24": 1, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ACCOUNTING CLERK III",
+    "21-24": 0, "25-34": 2, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE AIDE I",
+    "21-24": 0, "25-34": 0, "35-44": 1, "45-54": 1, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE AIDE III",
+    "21-24": 0, "25-34": 0, "35-44": 2, "45-54": 0, "55-64": 4, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE AIDE IV",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 2, "55-64": 2, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE AIDE V",
+    "21-24": 3, "25-34": 62, "35-44": 15, "45-54": 5, "55-64": 2, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE AIDE VI",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 0, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE ASSISTANT I",
+    "21-24": 1, "25-34": 16, "35-44": 7, "45-54": 3, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE ASSISTANT II",
+    "21-24": 6, "25-34": 35, "35-44": 11, "45-54": 2, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE ASSISTANT III",
+    "21-24": 5, "25-34": 44, "35-44": 7, "45-54": 2, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE ASSISTANT IV",
+    "21-24": 0, "25-34": 30, "35-44": 11, "45-54": 3, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE ASSISTANT V",
+    "21-24": 2, "25-34": 10, "35-44": 2, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE ASSISTANT VI",
+    "21-24": 0, "25-34": 20, "35-44": 1, "45-54": 0, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE OFFICER II",
+    "21-24": 0, "25-34": 2, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE OFFICER III",
+    "21-24": 0, "25-34": 17, "35-44": 1, "45-54": 1, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE OFFICER IV",
+    "21-24": 0, "25-34": 2, "35-44": 1, "45-54": 1, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ADMINISTRATIVE OFFICER V",
+    "21-24": 0, "25-34": 0, "35-44": 1, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "AGRICULTURAL TECHNICIAN I",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 0, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "AIRCON TECHNICIAN II",
+    "21-24": 0, "25-34": 0, "35-44": 1, "45-54": 0, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "ARCHITECT II",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ARTIST ILLUSTRATOR III",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 1, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "BUDGET CLERK II",
+    "21-24": 0, "25-34": 2, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "BUDGET CLERK III",
+    "21-24": 0, "25-34": 2, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "CARPENTER FOREMAN",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 0, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "CASH CLERK III",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "CLERK II",
+    "21-24": 0, "25-34": 10, "35-44": 1, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "CLERK III",
+    "21-24": 2, "25-34": 10, "35-44": 2, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "COMPUTER MAINTENANCE TECHNOLOGIST I",
+    "21-24": 0, "25-34": 4, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "COMPUTER OPERATOR II",
+    "21-24": 0, "25-34": 0, "35-44": 1, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "COMPUTER OPERATOR III",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "COMPUTER OPERATOR IV",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 1, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "COMPUTER PROGRAMMER I",
+    "21-24": 3, "25-34": 5, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "COMPUTER PROGRAMMER II",
+    "21-24": 0, "25-34": 1, "35-44": 1, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "COMPUTER PROGRAMMER III",
+    "21-24": 0, "25-34": 5, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "COMPUTER TECHNICIAN",
+    "21-24": 0, "25-34": 0, "35-44": 1, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "DATA REPORT OFFICER",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "DEVELOPMENT MANAGEMENT OFFICER III",
+    "21-24": 0, "25-34": 3, "35-44": 0, "45-54": 1, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "DISPATCHER",
+    "21-24": 0, "25-34": 0, "35-44": 1, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "DORMITORY ATTENDANT",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 2, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "DRAFTSMAN IV",
+    "21-24": 0, "25-34": 0, "35-44": 1, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "DRIVER I",
+    "21-24": 0, "25-34": 4, "35-44": 7, "45-54": 5, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "DRIVER II",
+    "21-24": 0, "25-34": 1, "35-44": 5, "45-54": 4, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "DRIVER III",
+    "21-24": 0, "25-34": 0, "35-44": 4, "45-54": 5, "55-64": 2, "65 & Above": 0
+  },
+  {
+    "Position": "ECONOMIST III",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ENGINEER I",
+    "21-24": 0, "25-34": 5, "35-44": 0, "45-54": 0, "55-64": 2, "65 & Above": 0
+  },
+  {
+    "Position": "ENGINEER II",
+    "21-24": 0, "25-34": 1, "35-44": 1, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ENGINEER III",
+    "21-24": 0, "25-34": 0, "35-44": 2, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "ENVIRONMENTAL MANAGEMENT SPECIALIST II",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "EXECUTIVE ASSISTANT I",
+    "21-24": 1, "25-34": 0, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "FARM FOREMAN",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 0, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "FARM MECHANIC",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "FARM SUPERINTENDENT I",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 1, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "FARM SUPERINTENDENT II",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "FARM WORKER II",
+    "21-24": 0, "25-34": 2, "35-44": 4, "45-54": 6, "55-64": 7, "65 & Above": 0
+  },
+  {
+    "Position": "FIELD TECHNICIAN",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 1, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "FINANCIAL ANALYST I",
+    "21-24": 0, "25-34": 5, "35-44": 0, "45-54": 1, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "HEALTH AND SAFETY OFFICER",
+    "21-24": 0, "25-34": 0, "35-44": 1, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "INFORMATION SYSTEM ANALYST I",
+    "21-24": 0, "25-34": 3, "35-44": 2, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "INFORMATION SYSTEM ANALYST II",
+    "21-24": 0, "25-34": 7, "35-44": 0, "45-54": 1, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "INFORMATION SYSTEM ANALYST III",
+    "21-24": 0, "25-34": 0, "35-44": 1, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "INFORMATION SYSTEM RESEARCHER II",
+    "21-24": 0, "25-34": 2, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "INFORMATION SYSTEM RESEARCHER III",
+    "21-24": 0, "25-34": 6, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "INFORMATION TECHNOLOGY OFFICER",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "INFORMATION TECHNOLOGY OFFICER II",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "INTERNAL AUDITOR I",
+    "21-24": 0, "25-34": 2, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "INTERNAL AUDITING ASSISTANT",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "LAB TECHNICIAN I",
+    "21-24": 0, "25-34": 2, "35-44": 0, "45-54": 2, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "LABORATORY AIDE I",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "LABORATORY AIDE II",
+    "21-24": 0, "25-34": 0, "35-44": 2, "45-54": 2, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "LABORATORY TECHNICIAN II",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 0, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "LABORER I",
+    "21-24": 3, "25-34": 32, "35-44": 41, "45-54": 15, "55-64": 3, "65 & Above": 2
+  },
+  {
+    "Position": "LABORER II",
+    "21-24": 0, "25-34": 39, "35-44": 113, "45-54": 90, "55-64": 56, "65 & Above": 8
+  },
+  {
+    "Position": "LEGAL OFFICER IV",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "MECHANIC I",
+    "21-24": 0, "25-34": 1, "35-44": 1, "45-54": 3, "55-64": 2, "65 & Above": 0
+  },
+  {
+    "Position": "MECHANIC II",
+    "21-24": 0, "25-34": 5, "35-44": 4, "45-54": 3, "55-64": 2, "65 & Above": 1
+  },
+  {
+    "Position": "MECHANIC III",
+    "21-24": 0, "25-34": 0, "35-44": 2, "45-54": 3, "55-64": 1, "65 & Above": 1
+  },
+  {
+    "Position": "MECHANIC SHOP FOREMAN",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 0, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "MECHANICAL PLANT OPERATOR III",
+    "21-24": 0, "25-34": 0, "35-44": 1, "45-54": 0, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "PLANNING ASSISTANT",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "PLANNING ASSISTANT II",
+    "21-24": 0, "25-34": 9, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "PLANNING OFFICER I",
+    "21-24": 0, "25-34": 1, "35-44": 1, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "PLANNING OFFICER II",
+    "21-24": 0, "25-34": 2, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "PLANNING OFFICER III",
+    "21-24": 0, "25-34": 7, "35-44": 1, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "PROCUREMENT MANAGEMENT OFFICER I",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "PROCUREMENT MANAGEMENT OFFICER II",
+    "21-24": 0, "25-34": 1, "35-44": 1, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "PROJECT DEVELOPMENT OFFICER II",
+    "21-24": 0, "25-34": 0, "35-44": 1, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "PROJECT DEVELOPMENT OFFICER III",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "PROJECT EVALUATION OFFICER II",
+    "21-24": 0, "25-34": 2, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "PROJECT LABORER I",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "PROJECT TECHNICAL ASSISTANT IV",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "PROJECT TECHNICAL SPECIALIST V",
+    "21-24": 0, "25-34": 2, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "PROJECT UTILITY AIDE I",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "SCIENCE AIDE",
+    "21-24": 0, "25-34": 6, "35-44": 3, "45-54": 4, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "SCIENCE AIDE II",
+    "21-24": 0, "25-34": 0, "35-44": 0, "45-54": 1, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "SCIENCE RESEARCH ANALYST",
+    "21-24": 8, "25-34": 87, "35-44": 4, "45-54": 3, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "SCIENCE RESEARCH ASSISTANT",
+    "21-24": 4, "25-34": 29, "35-44": 2, "45-54": 0, "55-64": 0, "65 & Above": 1
+  },
+  {
+    "Position": "SCIENCE RESEARCH SPECIALIST I",
+    "21-24": 15, "25-34": 192, "35-44": 22, "45-54": 6, "55-64": 3, "65 & Above": 3
+  },
+  {
+    "Position": "SCIENCE RESEARCH SPECIALIST II",
+    "21-24": 0, "25-34": 56, "35-44": 19, "45-54": 7, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "SECURITY GUARD I",
+    "21-24": 0, "25-34": 4, "35-44": 10, "45-54": 2, "55-64": 2, "65 & Above": 0
+  },
+  {
+    "Position": "SECURITY GUARD II",
+    "21-24": 0, "25-34": 0, "35-44": 5, "45-54": 1, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "SECURITY GUARD III",
+    "21-24": 0, "25-34": 0, "35-44": 4, "45-54": 1, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "SENIOR ADMINISTRATIVE ASSISTANT I",
+    "21-24": 0, "25-34": 11, "35-44": 2, "45-54": 0, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "SENIOR ADMINISTRATIVE ASSISTANT II",
+    "21-24": 0, "25-34": 0, "35-44": 1, "45-54": 0, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "SENIOR ADMINISTRATIVE ASSISTANT III",
+    "21-24": 0, "25-34": 1, "35-44": 2, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "SENIOR ADMINISTRATIVE ASSISTANT IV",
+    "21-24": 0, "25-34": 3, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "SENIOR AGRICULTURIST",
+    "21-24": 0, "25-34": 2, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "SENIOR REMOTE SENSING TECHNOLOGIST",
+    "21-24": 0, "25-34": 3, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "SENIOR SCIENCE RESEARCH SPECIALIST",
+    "21-24": 0, "25-34": 8, "35-44": 8, "45-54": 2, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "SHOP TECHNICIAN III",
+    "21-24": 0, "25-34": 1, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "STATISTICAL SPECIALIST II",
+    "21-24": 0, "25-34": 2, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "STATISTICIAN III",
+    "21-24": 0, "25-34": 2, "35-44": 0, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "SUPERVISING SCIENCE RESEARCH SPECIALIST",
+    "21-24": 0, "25-34": 0, "35-44": 2, "45-54": 0, "55-64": 0, "65 & Above": 0
+  },
+  {
+    "Position": "UTILITY FOREMAN",
+    "21-24": 0, "25-34": 3, "35-44": 3, "45-54": 5, "55-64": 2, "65 & Above": 0
+  },
+  {
+    "Position": "UTILITY WORKER I",
+    "21-24": 1, "25-34": 6, "35-44": 4, "45-54": 2, "55-64": 1, "65 & Above": 0
+  },
+  {
+    "Position": "UTILITY WORKER II",
+    "21-24": 0, "25-34": 4, "35-44": 8, "45-54": 10, "55-64": 6, "65 & Above": 3
+  }
+]

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhilRice HRIS</title>
+    <link rel="stylesheet" href="cos-filled.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="cos-page">
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/PhilRice-Logo.png" alt="PhilRice Logo">
+                <div class="logo-text">HRIS</div>
+                <div class="logo-subtitle">HUMAN RESOURCES<br>INFORMATION SYSTEM</div>
+            </div>
+            <nav class="nav-menu">
+                <div class="menu-section-header">Menu</div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/dashboard1.png">
+                    <span><a href="index.html">Dashboard</a></span>
+                </div>
+                
+                <div class="has-dropdown active-parent">
+                    <div class="menu-header" onclick="toggleDropdown(this)">
+                        <div class="icon-box">
+                            <img src="img/cos1.png">
+                        </div>
+                        <span><a href="cos.html">COS</a></span>
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    
+                    <div class="submenu">
+                        <div class="submenu-item">
+                            <div class="icon-box">
+                                <img src="img/filled1.png">
+                            </div>
+                            <span><a href="cos-filled.html">Filled</a></span>
+                        </div>
+                        <div class="submenu-item active">
+                            <div class="icon-box">
+                                <img src="img/vacant2.png">
+                            </div>
+                            <span>Vacant</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/jo1.png">
+                    <span><a href="jo.html">Job Order</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/ticket1.png">
+                    <span><a href="booking.html">Booking</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/calendar1.png">
+                    <span><a href="calendar.html">Calendar</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/bell.png">
+                    <span><a href="notifications.html">Notifications</a></span>
+                </div>
+
+                <div class="menu-section-header">Account</div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/user1.png">
+                    <span><a href="user.html">Account</a></span>
+                </div>
+                <!-- <div class="nav-item">
+                    <img class="icon-box" src="img/signout.png">
+                    <span><a href="#">Sign Out</a></span>
+                </div> -->
+            </nav>
+        </aside>
+
+        <!-- Header -->
+        <div class="page-header">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span>HRIS</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span>Contract of Service (VACANT)</span>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search for a Station..." id="station-search">
+                    </div>
+                    <button class="export-btn" onclick="exportToPDF()">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>EXPORT TO PDF</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI Cards -->
+        <main class="main-content">
+            <div class="stats-grid">
+                <div class="card">
+                    <div class="card-title">TOTAL ATH</div>
+                    <div class="card-body">
+                        <img src="img/ath.png" class="nav-card-icon">
+                        <span class="number">2,060</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">TOTAL HIRED</div>
+                    <div class="card-body">
+                        <img src="img/hired1.png" class="nav-card-icon">
+                        <span class="number">1,713</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">VACANT</div>
+                    <div class="card-body">
+                        <img src="img/vacant.png" class="nav-card-icon">
+                        <span class="number">347</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Date Filter -->
+            <div class="date-picker-container">
+                <div class="date-picker">
+                    <label>Start Date:</label>
+                    <div class="date-input-wrapper">
+                        
+                        <input type="date" id="start-date">
+                    </div>
+                </div>
+                <div class="date-picker">
+                    <label>End Date:</label>
+                    <div class="date-input-wrapper">
+                        
+                        <input type="date" id="end-date">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tables and Graphs -->
+            <div class="main-data-card">
+                <div class="metrics-chart">
+                    <div class="ath-container">
+                        <div class="ath-header">
+                            <div class="ath-title">2026 Authority to Hire</div>
+                            <div class="ath-subtitle">
+                                <span>PHILIPPINE RICE RESEARCH INSTITUTE (PHILRICE)</span>
+                                <br>
+                                <span>CONTRACT OF SERVICE (COS) VACANT</span>
+                            </div>
+                        </div>
+
+                        <div class="ath-grid">
+                            <div class="grid-label metrics">METRICS</div>
+
+                            <div class="cell green-1">CES<br><strong>45.01%</strong></div>
+                            <div class="cell green-2">AGUSAN<br><strong>7.59%</strong></div>
+                            <div class="cell green-3">BATAC<br><strong>5.25%</strong></div>
+                            <div class="cell green-4">NEGROS<br><strong>8.87%</strong></div>
+                            <div class="cell green-5">MIDSAYAP<br><strong>7.88%</strong></div>
+
+                            <div class="grid-label utilization">UTILIZATION RATE</div>
+
+                            <div class="cell total-hired">TOTAL HIRED<br><strong>91.86%</strong></div>
+
+                            <div class="cell green-6">ISABELA<br><strong>6.36%</strong></div>
+                            <div class="cell green-7">BICOL<br><strong>6.83%</strong></div>
+                            <div class="cell green-8">CMU<br><strong>2.28%</strong></div>
+                            <div class="cell green-9">LOS BAÑOS<br><strong>8.93%</strong></div>
+                            <div class="cell green-10">SAMAR<br><strong>0.99%</strong></div>
+
+                            <div class="cell vacant">VACANT<br><strong>8.14%</strong></div>
+                        </div>
+                        <p class="table-note">This chart shows the distribution of hired Contract of Service (COS) personnel by station. Percentages indicate each station's share of the total hired COS personnel.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="main-data-card">
+                <div class="middle-container2">
+                    <div class="table-header-title">Contract of Service: Vacant Count by (Fund Class and Station)</div>
+                    <div class="cos-graph-container">
+                        <div class="cos-graph-panel">
+                            <div class="cos-graph-content">
+                                <canvas id="vacantCountChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <br>
+                    <div class="table-wrapper">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr><th>STATIONS</th><th>CORPO</th><th>TRUST</th><th>BDD</th><th>RCEF</th><th>NRP</th><th>TOTAL</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>CES</td><td>271</td><td>114</td><td>42</td><td>172</td><td> </td><td>599</td></tr>
+                                <tr><td>AGUSAN</td><td>42</td><td>1</td><td>22</td><td>56</td><td>9</td><td>130</td></tr>
+                                <tr><td>BATAC</td><td>42</td><td>2</td><td>5</td><td>35</td><td> </td><td>84</td></tr>
+                                <tr><td>BICOL</td><td>46</td><td>5</td><td>3</td><td>61</td><td> </td><td>115</td></tr>
+                                <tr><td>CMU</td><td>3</td><td>1</td><td>25</td><td>2</td><td> </td><td>31</td></tr>
+                                <tr><td>ISABELA</td><td>39</td><td>2</td><td>21</td><td>47</td><td> </td><td>109</td></tr>
+                                <tr><td>LOS BAÑOS</td><td>67</td><td> </td><td> </td><td>52</td><td>19</td><td>138</td></tr>
+                                <tr><td>MIDSAYAP</td><td>37</td><td>4</td><td>12</td><td>47</td><td>10</td><td>110</td></tr>
+                                <tr><td>NEGROS</td><td>54</td><td>1</td><td>32</td><td>63</td><td> </td><td>150</td></tr>
+                                <tr><td>SAMAR</td><td>1</td><td> </td><td>1</td><td> </td><td> </td><td>2</td></tr>
+                                <tr class="totalhired"><td>TOTAL</td><td>602</td><td>130</td><td>172</td><td>535</td><td>210</td><td>1,649</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="table-note">This chart shows the distribution of hired Contract of Service (COS) personnel by station. Percentages indicate each station's share of the total hired COS personnel.</p>
+
+                    <div class="table-header-title">Contract of Service: Vacant Cost by (Fund Class and Station)</div>
+                    <br>
+                    <div class="table-wrapper">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr><th>STATIONS</th><th>CORPO</th><th>TRUST</th><th>BDD</th><th>RCEF</th><th>NRP</th><th>TOTAL</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>CES</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>AGUSAN</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>BATAC</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>BICOL</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>CMU</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>ISABELA</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>LOS BAÑOS</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>MIDSAYAP</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>NEGROS</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>SAMAR</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>TOTAL</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="table-note">This chart shows the distribution of hired Contract of Service (COS) personnel by station. 
+                        Percentages indicate each station’s share of the total hired COS personnel.
+                    </p> 
+                </div>
+            </div>
+
+            <div class="main-data-card">
+                <div class="ath-header">
+                    <div class="ath-title1">Vacant Positions</div>
+                    <div class="ath-subtitle1">
+                        <span>PHILIPPINE RICE RESEARCH INSTITUTE (PHILRICE)</span>
+                        <br>
+                        <span>CONTRACT OF SERVICE (COS) VACANT</span>
+                    </div>
+                </div>
+                <div class="table-header-title">AUTHORITY TO HIRE COS PER STATION (JANUARY TO DECEMBER 2026)</div>
+                <br>
+                <div class="table-wrapper">
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr><th>TOTAL</th><th>0</th><th>0</th><th>0</th><th>0</th><th>0</th><th>0</th><th>0</th><th>0</th></tr>
+                            <tr><th>POSITION</th><th>FILLED</th><th>SG</th><th>BASIC SALARY (SSL 2020)</th><th>20% PREMIUM</th><th>MONTHLY SALARY * TOTAL COUNT</th><th>MONTHLY PREMIUM * TOTAL COUNT</th><th>TOTAL (MONTHLY * PREMIUM)</th><th>12-MONTH TOTAL SALARY</th></tr>
+
+                        </thead>
+                        <tbody>
+                                <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/cos-vacant-charts.js"></script>
+    <script src="js/cosvacexport.js"></script>
+
+</body>
+</html>

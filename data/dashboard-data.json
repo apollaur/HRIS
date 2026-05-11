@@ -1,0 +1,51 @@
+{
+  "personnel": [
+	{ "station": "CES", "filled": 740, "vacant": 115 },
+	{ "station": "AGUSAN", "filled": 120, "vacant": 4 },
+    	{ "station": "BATAC", "filled": 84, "vacant": 2 },
+    	{ "station": "BICOL", "filled": 104, "vacant": 2 },
+	{ "station": "CMU", "filled": 39, "vacant": 3 },
+	{ "station": "ISABELA", "filled": 100, "vacant": 0 },
+	{ "station": "LOS BAÑOS", "filled": 148, "vacant": 12 },
+	{ "station": "MIDSAYAP", "filled": 131, "vacant": 5 },
+	{ "station": "NEGROS", "filled": 140, "vacant": 1 },
+	{ "station": "SAMAR", "filled": 18, "vacant": 0 }
+  ],
+
+  "cos": [
+	{ "station": "CES", "m": 491, "f": 336 },
+	{ "station": "AGUSAN", "m": 85, "f": 42 },
+	{ "station": "BATAC", "m": 40, "f": 44 },
+	{ "station": "BICOL", "m": 68, "f": 44 },
+	{ "station": "CMU", "m": 42, "f": 8 },
+	{ "station": "ISABELA", "m": 69, "f": 32 },
+	{ "station": "LOS BAÑOS", "m": 98, "f": 72 },
+	{ "station": "MIDSAYAP", "m": 97, "f": 40 },
+	{ "station": "NEGROS", "m": 86, "f": 55 },
+	{ "station": "SAMAR", "m": 17, "f": 1 }
+  ],
+  "jo": [
+	{ "station": "CES", "m": 44, "f": 42 },
+	{ "station": "AGUSAN", "m": 4, "f": 3 },
+	{ "station": "BATAC", "m": 0, "f": 0 },
+	{ "station": "BICOL", "m": 5, "f": 3 },
+	{ "station": "CMU", "m": 7, "f": 4 },
+	{ "station": "ISABLEA", "m": 1, "f": 0 },
+	{ "station": "LOS BAÑOS", "m": 15, "f": 7 },
+	{ "station": "MIDSAYAP", "m": 1, "f": 5 },
+	{ "station": "NEGROS", "m": 1, "f": 0 },
+	{ "station": "SAMAR", "m": 0, "f": 0 }
+  ],
+  "diversity": [
+	{ "station": "CES", "m": 521, "f": 350 },
+	{ "station": "AGUSAN", "m": 85, "f": 44 },
+	{ "station": "BATAC", "m": 85, "f": 44 },
+	{ "station": "BICOL", "m": 5, "f": 3 },
+	{ "station": "CMU", "m": 7, "f": 4 },
+	{ "station": "ISABLEA", "m": 1, "f": 0 },
+	{ "station": "LOS BAÑOS", "m": 15, "f": 7 },
+	{ "station": "MIDSAYAP", "m": 1, "f": 5 },
+	{ "station": "NEGROS", "m": 1, "f": 0 },
+	{ "station": "SAMAR", "m": 0, "f": 0 }
+  ]
+}

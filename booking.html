@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhilRice HRIS</title>
+    <link rel="stylesheet" href="booking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="cos-page">
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/PhilRice-Logo.png" alt="PhilRice Logo">
+                <div class="logo-text">HRIS</div>
+                <div class="logo-subtitle">HUMAN RESOURCES<br>INFORMATION SYSTEM</div>
+            </div>
+            <nav class="nav-menu">
+                <div class="menu-section-header">Menu</div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/dashboard1.png">
+                    <span><a href="index.html">Dashboard</a></span>
+                </div>
+                
+                <div class="has-dropdown">
+                    <div class="menu-header" onclick="toggleDropdown(this)">
+                        <div class="icon-box">
+                            <img src="img/cos1.png">
+                        </div>
+                            <span><a href="cos.html">COS</a></span>
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    
+                    <div class="submenu">
+                        <div class="submenu-item">
+                            <div class="icon-box">
+                                <img src="img/filled1.png">
+                            </div>
+                            <span><a href="cos-filled.html">Filled</a></span>
+                        </div>
+                        <div class="submenu-item">
+                            <div class="icon-box">
+                                <img src="img/vacant2.png">
+                            </div>
+                            <span><a href="cos-vacant.html">Vacant</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/jo1.png">
+                    <span><a href="jo.html">Job Order</a></span>
+                </div>
+                <div class="nav-item active">
+                    <img class="icon-box" src="img/ticket1.png">
+                    <span>Booking</span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/calendar1.png">
+                    <span><a href="calendar.html">Calendar</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/bell.png">
+                    <span><a href="notifications.html">Notifications</a></span>
+                </div>
+
+                <div class="menu-section-header">Account</div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/user1.png">
+                    <span><a href="user.html">Account</a></span>
+                </div>
+                <!-- <div class="nav-item">
+                    <img class="icon-box" src="img/signout.png">
+                    <span><a href="#">Sign Out</a></span>
+                </div> -->
+            </nav>
+        </aside>
+
+        <!-- Header -->
+        <div class="page-header">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span class="header-text">HRIS</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span class="header-text">Booking</span>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search for a Station..." id="station-search">
+                    </div>
+                    <button class="export-btn" onclick="exportToPDF()">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>EXPORT TO PDF</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI Cards -->
+        <main class="main-content">
+            <div class="stats-grid">
+                <div class="card">
+                    <div class="card-title">TOTAL AIRFARE</div>
+                    <div class="card-body">
+                        <img src="img/airfare.png" class="nav-card-icon">
+                        <span class="number">7,429,964</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">TOTAL TICKETS</div>
+                    <div class="card-body">
+                        <img src="img/tickets.png" class="nav-card-icon">
+                        <span class="number">276</span>
+                    </div>
+                    <p class="note"><i>Note: Overall Unique Tickets</i></p>
+                </div>
+                <div class="card cancelled-titles">
+                    <div class="card-title">CANCELLED (COUNT)</div>
+
+                    <div class="card-body">
+                        <img src="img/cancelled.png" class="nav-card-icon">
+                        <span class="number">18</span>
+                    </div>
+                </div>
+                <div class="card cancelled-titles">
+                    <div class="card-title">CANCELLED (COST)</div>
+
+                    <div class="card-body">
+                        <img src="img/cost.png" class="nav-card-icon">
+                        <span class="number">337,399</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Date Filter -->
+            <!-- <div class="date-picker-container">
+                <div class="date-picker">
+                    <label>Start Date:</label>
+                    <div class="date-input-wrapper">
+                        
+                        <input type="date" id="start-date">
+                    </div>
+                </div>
+                <div class="date-picker">
+                    <label>End Date:</label>
+                    <div class="date-input-wrapper">
+                        
+                        <input type="date" id="end-date">
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="main-data-card">
+
+                <div class="metrics-chart">
+
+                    <div class="ath-container demographics-container">
+                        <div class="ath-header">
+                            <div class="ath-title1">2025 BOOKING</div>
+                            <div class="ath-subtitle1">
+                                <span>PHILIPPINE RICE RESEARCH INSTITUTE (PHILRICE)</span>
+                                <br>
+                                <span>AIRFARE AND TICKETS</span>
+                            </div>
+                        </div>
+
+                        <div class="ath-grid">
+                            <div class="grid-label metrics">METRICS</div>
+
+                            <div class="cell blue-1">JANUARY<br><strong>1,073,755</strong></div>
+                            <div class="cell blue-2">FEBRUARY<br><strong>1,449,567</strong></div>
+                            <div class="cell blue-3">MARCH<br><strong>1,393,339</strong></div>
+                            <div class="cell blue-4">APRIL<br><strong>1,114,074</strong></div>
+                            <div class="cell blue-5">MAY<br><strong>1,068,270</strong></div>
+                            <div class="cell blue-5">JUNE<br><strong>1,549,524</strong></div>
+
+                            <div class="grid-label utilization">UTILIZATION RATE</div>
+
+                            <div class="cell total-tickets">TICKETS<br><strong>586</strong></div>
+
+                            <div class="cell blue-6">JULY<br><strong>1,262,998</strong></div>
+                            <div class="cell blue-6">AUGUST<br><strong>1,444,409</strong></div>
+                            <div class="cell blue-6">SEPTEMBER<br><strong>1,619,513</strong></div>
+                            <div class="cell blue-6">OCTOBER<br><strong>1,326,837</strong></div>
+                            <div class="cell blue-6">NOVEMBER<br><strong>1,384,355</strong></div>
+                            <div class="cell blue-6">DECEMBER<br><strong>392,212</strong></div>
+
+                            <div class="cell total-airfare">AIRFARE<br><strong>15,024,493</strong></div>
+                        </div>
+                    </div>
+                        <p class="table-note">This chart shows the distribution of hired Contract of Service (COS) personnel by station. Percentages indicate each station’s share of the total hired COS personnel.</p>
+                </div>
+
+                <div class="demographics-bottom-container">
+                    <div class="demographics-table-panel">
+                        <div class="table-wrapper">
+                            <table class="demographics-table">
+                                <thead>
+                                    <tr><th>SECTOR</th><th>TICKETS</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>GASS</td><td>29</td></tr>
+                                    <tr><td>RESEARCH</td><td>165</td></tr>
+                                    <tr><td>DEVELOPMENT</td><td>65</td></tr>
+                                    <tr><td>UNIT / OFFICE / BRANCH</td><td>11</td></tr>
+                                    <tr><td>RCEF</td><td>10</td></tr>
+                                    <tr><td>TOTAL</td><td>280</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="cos-graph-container">
+                        <div class="cos-graph-panel">
+                            <div class="cos-graph-content">
+                                <canvas id="bookingTicketsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="table-note">This chart shows the distribution of hired Contract of Service (COS) personnel by station. Percentages indicate each station's share of the total hired COS personnel.</p>
+
+                <div class="demographics-bottom-container">
+                    <div class="demographics-table-panel">
+                        <div class="table-wrapper">
+                            <table class="demographics-table">
+                                <thead>
+                                    <tr><th>SECTOR</th><th>COST</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>GASS</td><td>551,412</td></tr>
+                                    <tr><td>RESEARCH</td><td>4,941,477</td></tr>
+                                    <tr><td>DEVELOPMENT</td><td>1,439,968</td></tr>
+                                    <tr><td>UNIT / OFFICE / BRANCH</td><td>188,016</td></tr>
+                                    <tr><td>RCEF</td><td>309,091</td></tr>
+                                    <tr><td>TOTAL</td><td>7,429,964</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="cos-graph-container">
+                        <div class="cos-graph-panel">
+                            <div class="cos-graph-content">
+                                <canvas id="bookingCostChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="table-note">This chart shows the distribution of hired Contract of Service (COS) personnel by station. Percentages indicate each station’s share of the total hired COS personnel.</p>
+
+                <div class="table-header-title">PER DIVISION</div>
+
+                <div class="division-tables-container">
+                    <!-- First row: 3 tables -->
+                    <div class="division-row-1">
+                        <!-- GASS Table -->
+                        <div class="division-table-wrapper">
+                            <table class="division-table">
+                                <thead>
+                                    <tr><th colspan="4" class="main-header">GASS</th></tr>
+                                    <tr><th class="col-header">DIVISION</th><th class="col-header">COST</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>ADMIN</td><td>56,898</td></tr>
+                                    <tr><td>BDD</td><td>24,847</td></tr>
+                                    <tr><td>FMD</td><td>26,993</td></tr>
+                                    <tr><td>ODA</td><td>0</td></tr>
+                                    <tr><td>PPD</td><td>327,889</td></tr>
+                                    <tr><td>IMSSO</td><td>7,945</td></tr>
+                                    <tr><td>PMD</td><td>45,844</td></tr>
+                                    <tr><td>PSMU</td><td>0</td></tr>
+                                    <tr><td>ODEDASF</td><td>60,996</td></tr>
+                                    <tr><td>LEGAL</td><td>0</td></tr>
+                                    <tr class="total-row"><td>TOTAL</td><td>551,412</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- RESEARCH Table -->
+                        <div class="division-table-wrapper">
+                            <table class="division-table">
+                                <thead>
+                                    <tr><th colspan="4" class="main-header">RESEARCH</th></tr>
+                                    <tr><th class="col-header">DIVISION</th><th class="col-header">COST</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>ASPPD</td><td>912,640</td></tr>
+                                    <tr><td>CBC</td><td>168,464</td></tr>
+                                    <tr><td>CPD</td><td>297,035</td></tr>
+                                    <tr><td>DAC</td><td>182,826</td></tr>
+                                    <tr><td>GRD</td><td>11,141,922</td></tr>
+                                    <tr><td>ODR</td><td>83,327</td></tr>
+                                    <tr><td>PBBD</td><td>969,137</td></tr>
+                                    <tr><td>RCFSD</td><td>337,300</td></tr>
+                                    <tr><td>REMD</td><td>566,822</td></tr>
+                                    <tr><td>SED</td><td>282,004</td></tr>
+                                    <tr class="total-row"><td>TOTAL</td><td>14,941,477</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- DEVELOPMENT Table -->
+                        <div class="division-table-wrapper">
+                            <table class="division-table">
+                                <thead>
+                                    <tr><th colspan="4" class="main-header">DEVELOPMENT</th></tr>
+                                    <tr><th class="col-header">DIVISION</th><th class="col-header">COST</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>ODEDD</td><td>9,247</td></tr>
+                                    <tr><td>DEVCOM</td><td>259,456</td></tr>
+                                    <tr><td>GAD</td><td>0</td></tr>
+                                    <tr><td>ISD</td><td>339,569</td></tr>
+                                    <tr><td>ODD</td><td>0</td></tr>
+                                    <tr><td>COMREL</td><td>0</td></tr>
+                                    <tr><td>TMSD</td><td>647,571</td></tr>
+                                    <tr><td>&nbsp;</td><td></td></tr>
+                                    <tr><td>&nbsp;</td><td></td></tr>
+                                    <tr><td>&nbsp;</td><td></td></tr>
+                                    <tr class="total-row"><td>TOTAL</td><td>1,255,843</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Second row: 2 centered tables -->
+                    <div class="division-row-2">
+                        <!-- OED Table -->
+                        <div class="division-table-wrapper">
+                            <table class="division-table">
+                                <thead>
+                                    <tr><th colspan="4" class="main-header">UNIT / OFFICE / BRANCH</th></tr>
+                                    <tr><th class="col-header">DIVISION</th><th class="col-header">COST</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>OED</td><td>35,863</td></tr>
+                                    <tr><td>IAU</td><td>58,426</td></tr>
+                                    <tr><td>COA</td><td>0</td></tr>
+                                    <tr><td>CSD</td><td>81,566</td></tr>
+                                    <tr><td>AGUSAN</td><td>0</td></tr>
+                                    <tr><td>ISABELA</td><td>12,161</td></tr>
+                                    <tr class="total-row"><td>TOTAL</td><td>188,016</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- RCEF-PMO Table -->
+                        <div class="division-table-wrapper">
+                            <table class="division-table">
+                                <thead>
+                                    <tr><th colspan="4" class="main-header">DEVELOPMENT</th></tr>
+                                    <tr><th class="col-header">DIVISION</th><th class="col-header">COST</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>RCEF</td><td>309,091</td></tr>
+                                    <tr><td>&nbsp;</td><td></td></tr>
+                                    <tr><td>&nbsp;</td><td></td></tr>
+                                    <tr><td>&nbsp;</td><td></td></tr>
+                                    <tr><td>&nbsp;</td><td></td></tr>
+                                    <tr><td>&nbsp;</td><td></td></tr>
+                                    <tr class="total-row"><td>TOTAL</td><td>309,091</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/booking-charts.js"></script>
+    <script src="js/bookingexport.js"></script>
+
+</body>
+</html>

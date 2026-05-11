@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhilRice HRIS - Account</title>
+    <link rel="stylesheet" href="booking.css">
+    <link rel="stylesheet" href="user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="cos-page">
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/PhilRice-Logo.png" alt="PhilRice Logo">
+                <div class="logo-text">HRIS</div>
+                <div class="logo-subtitle">HUMAN RESOURCES<br>INFORMATION SYSTEM</div>
+            </div>
+            <nav class="nav-menu">
+                <div class="menu-section-header">Menu</div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/dashboard1.png">
+                    <span><a href="index.html">Dashboard</a></span>
+                </div>
+                
+                <div class="has-dropdown">
+                    <div class="menu-header" onclick="toggleDropdown(this)">
+                        <div class="icon-box">
+                            <img src="img/cos1.png">
+                        </div>
+                            <span><a href="cos.html">COS</a></span>
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    
+                    <div class="submenu">
+                        <div class="submenu-item">
+                            <div class="icon-box">
+                                <img src="img/filled1.png">
+                            </div>
+                            <span><a href="cos-filled.html">Filled</a></span>
+                        </div>
+                        <div class="submenu-item">
+                            <div class="icon-box">
+                                <img src="img/vacant2.png">
+                            </div>
+                            <span><a href="cos-vacant.html">Vacant</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/jo1.png">
+                    <span><a href="jo.html">Job Order</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/ticket1.png">
+                    <span><a href="booking.html">Booking</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/calendar1.png">
+                    <span><a href="calendar.html">Calendar</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/bell.png">
+                    <span><a href="notifications.html">Notifications</a></span>
+                </div>
+
+                <div class="menu-section-header">Account</div>
+                <div class="nav-item active">
+                    <img class="icon-box" src="img/user1.png">
+                    <span><a href="user.html">Account</a></span>
+                </div>
+                <!-- <div class="nav-item">
+                    <img class="icon-box" src="img/signout.png">
+                    <span><a href="#">Sign Out</a></span>
+                </div> -->
+            </nav>
+        </aside>
+
+        <!-- Header -->
+        <div class="page-header">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span class="header-text">HRIS</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span class="header-text">Account</span>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search..." id="user-search">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="user-profile-section">
+                <div class="user-avatar-card">
+                    <div class="user-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h3>Juan Dela Cruz</h3>
+                    <span class="user-role">HR Administrator</span>
+                    <span class="user-status">
+                        <span class="status-dot"></span>
+                        Active
+                    </span>
+                </div>
+
+                <div class="user-details-card">
+                    <div class="section-title">PERSONAL INFORMATION</div>
+                    <div class="user-info-grid">
+                        <div class="user-info-item">
+                            <span class="info-label">Employee ID</span>
+                            <span class="info-value">PR-2024-00142</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="info-label">Full Name</span>
+                            <span class="info-value">Juan Dela Cruz</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="info-label">Email</span>
+                            <span class="info-value">j.delacruz@philrice.gov.ph</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="info-label">Department</span>
+                            <span class="info-value">Human Resources</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="info-label">Position</span>
+                            <span class="info-value">HR Admin</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="info-label">Employment Type</span>
+                            <span class="info-value">Regular</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="info-label">Date Hired</span>
+                            <span class="info-value">January 15, 2020</span>
+                        </div>
+                        <div class="user-info-item">
+                            <span class="info-label">Station</span>
+                            <span class="info-value">CES</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-actions-section">
+                <button class="user-action-btn" onclick="alert('')">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Edit Profile
+                </button>
+                <button class="user-action-btn" onclick="alert('')">
+                    <i class="fa-solid fa-key"></i>
+                    Change Password
+                </button>
+                <button class="user-action-btn" onclick="alert('')">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Activity Log
+                </button>
+                <button class="user-action-btn danger" onclick="alert('')">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Sign Out
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/dropdown.js"></script>
+</body>
+</html>

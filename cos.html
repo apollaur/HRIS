@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhilRice HRIS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="cos-page">
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/PhilRice-Logo.png" alt="PhilRice Logo">
+                <div class="logo-text">HRIS</div>
+                <div class="logo-subtitle">HUMAN RESOURCES<br>INFORMATION SYSTEM</div>
+            </div>
+            <nav class="nav-menu">
+                <div class="menu-section-header">Menu</div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/dashboard1.png">
+                    <span><a href="index.html">Dashboard</a></span>
+                </div>
+                
+                <div class="has-dropdown active-parent">
+                    <div class="menu-header active" onclick="toggleDropdown(this)">
+                        <div class="icon-box">
+                            <img src="img/cos1.png">
+                        </div>
+                        <span>COS</span>
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    
+                    <div class="submenu">
+                        <div class="submenu-item">
+                            <div class="icon-box">
+                                <img src="img/filled1.png">
+                            </div>
+                            <span><a href="cos-filled.html">Filled</a></span>
+                        </div>
+                        <div class="submenu-item">
+                            <div class="icon-box">
+                                <img src="img/vacant2.png">
+                            </div>
+                            <span><a href="cos-vacant.html">Vacant</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/jo1.png">
+                    <span><a href="jo.html">Job Order</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/ticket1.png">
+                    <span><a href="booking.html">Booking</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/calendar1.png">
+                    <span><a href="calendar.html">Calendar</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/bell.png">
+                    <span><a href="notifications.html">Notifications</a></span>
+                </div>
+
+                <div class="menu-section-header">Account</div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/user1.png">
+                    <span><a href="user.html">Account</a></span>
+                </div>
+                <!-- <div class="nav-item">
+                    <img class="icon-box" src="img/signout.png">
+                    <span><a href="#">Sign Out</a></span>
+                </div> -->
+            </nav>
+        </aside>
+
+        <!-- Header -->
+        <div class="page-header">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span class="header-text">HRIS</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span class="header-text">Contract of Service</span>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search..." id="station-search">
+                    </div>
+                    <button class="export-btn" onclick="exportToPDF()">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>EXPORT TO PDF</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI Cards -->
+        <main class="main-content">
+            <div class="stats-grid">
+                <div class="card">
+                    <div class="card-title">TOTAL ATH</div>
+                    <div class="card-body">
+                        <img src="img/ath.png" class="nav-card-icon">
+                        <span class="number">2,060</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">TOTAL HIRED</div>
+                    <div class="card-body">
+                        <img src="img/hired1.png" class="nav-card-icon">
+                        <span class="number">1,713</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">VACANT</div>
+                    <div class="card-body">
+                        <img src="img/vacant.png" class="nav-card-icon">
+                        <span class="number">347</span>
+                    </div>
+                </div>
+              
+                <div class="card">
+                    <div class="card-title">MALE</div>
+                    <div class="card-body">
+                        <img src="img/male.png" class="nav-card-icon">
+                        <span class="number">1,019</span>
+                </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">FEMALE</div>
+                    <div class="card-body">
+                        <img src="img/female.png" class="nav-card-icon">
+                        <span class="number">616</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Date Filter -->
+            <div class="date-picker-container">
+                <div class="date-picker">
+                    <label>Start Date:</label>
+                    <div class="date-input-wrapper">
+                        
+                        <input type="date" id="start-date">
+                    </div>
+                </div>
+                <div class="date-picker">
+                    <label>End Date:</label>
+                    <div class="date-input-wrapper">
+                        
+                        <input type="date" id="end-date">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tables and Graphs -->
+            <div class="main-data-card">
+
+                <div class="middle-container1">
+                    
+                    <div class="inner-panel1">
+                        <div class="table-header-title">MALE & FEMALE BY SECTOR</div>
+                        <div class="table-wrapper">
+                            <table class="dashboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>SECTOR</th>
+                                        <th>MALE</th>
+                                        <th>FEMALE</th>
+                                        <th>TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="bold-cell">GASS</td><td>110</td><td>84</td><td>202</td></tr>
+                                    <tr><td class="bold-cell">RESEARCH</td><td>243</td><td>146</td><td>379</td></tr>
+                                    <tr><td class="bold-cell">DEVELOPMENT</td><td>52</td><td>37</td><td>89</td></tr>
+                                    <tr><td class="bold-cell">UNIT/OFFICE</td><td>9</td><td>9</td><td>18</td></tr>
+                                    <tr><td class="bold-cell">RCEF</td><td>24</td><td>29</td><td>53</td></tr>
+                                    <tr class="totalhired"><td>TOTAL</td><td>446</td><td>295</td><td>741</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="inner-panel">
+                        <div class="table-header-title">AGE GROUP BY SECTOR</div>
+                        <div class="table-wrapper">
+                            <table class="dashboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>SECTOR</th>
+                                        <th>21-24</th>
+                                        <th>25-34</th>
+                                        <th>35-44</th>
+                                        <th>45-54</th>
+                                        <th>55-64</th>
+                                        <th>65+</th>
+                                        <th>TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="bold-cell">GASS</td><td>10</td><td>98</td><td>44</td><td>31</td><td>17</td><td>1</td><td>201</td></tr>
+                                    <tr><td class="bold-cell">RESEARCH</td><td>17</td><td>179</td><td>85</td><td>54</td><td>33</td><td>10</td><td>378</td></tr>
+                                    <tr><td class="bold-cell">DEVELOPMENT</td><td>6</td><td>54</td><td>19</td><td>8</td><td>2</td><td>0</td><td>89</td></tr>
+                                    <tr><td class="bold-cell">UNIT/OFFICE</td><td>1</td><td>15</td><td>1</td><td>1</td><td>0</td><td>0</td><td>18</td></tr>
+                                    <tr><td class="bold-cell">RCEF</td><td>3</td><td>48</td><td>2</td><td>0</td><td>0</td><td>0</td><td>53</td></tr>
+                                    <tr class="totalhired"><td>TOTAL</td><td>37</td><td>394</td><td>151</td><td>94</td><td>52</td><td>11</td><td>739</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="cos-graph-container">
+                    <div class="cos-graph-panel">
+                        <div class="cos-graph-content">
+                            <canvas id="sexDistributionChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="cos-graph-panel">
+                        <div class="cos-graph-content">
+                            <canvas id="ageGroupChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-data-card">
+
+                <div class="middle-container1">
+                    <div class="inner-panel1">
+                        <div class="table-header-title">WORKFORCE DIVERSITY (AGE GROUP AND SEX DISTRIBUTION BY DIVISION)</div>
+                        
+                    <div class="table-container">
+                    <table class="custom-table" id="workforceDiversityTable">
+
+                        <!-- TOP TOTAL -->
+                        <tr class="top-total">
+                            <th>TOTAL</th>
+                            <th colspan="2" id="wd-total-21-24">0</th>
+                            <th colspan="2" id="wd-total-25-34">0</th>
+                            <th colspan="2" id="wd-total-35-44">0</th>
+                            <th colspan="2" id="wd-total-45-54">0</th>
+                            <th colspan="2" id="wd-total-55-64">0</th>
+                            <th colspan="2" id="wd-total-65+">0</th>
+                            <th id="wd-grand-total">0</th>
+                        </tr>
+
+                        <!-- AGE GROUPS -->
+                        <tr class="age-group">
+                            <th rowspan="2">DIVISION</th>
+                            <th colspan="2">21-24</th>
+                            <th colspan="2">25-34</th>
+                            <th colspan="2">35-44</th>
+                            <th colspan="2">45-54</th>
+                            <th colspan="2">55-64</th>
+                            <th colspan="2">65 & Above</th>
+                            <th rowspan="2">TOTAL</th>
+                        </tr>
+
+                        <tr class="sub-header">
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                        </tr>
+
+                        <!-- OVERALL SUBTOTAL -->
+                        <tr class="subtotal">
+                            <td>SUBTOTAL</td>
+                            <td id="wd-sub-21-24m">0</td><td id="wd-sub-21-24f">0</td>
+                            <td id="wd-sub-25-34m">0</td><td id="wd-sub-25-34f">0</td>
+                            <td id="wd-sub-35-44m">0</td><td id="wd-sub-35-44f">0</td>
+                            <td id="wd-sub-45-54m">0</td><td id="wd-sub-45-54f">0</td>
+                            <td id="wd-sub-55-64m">0</td><td id="wd-sub-55-64f">0</td>
+                            <td id="wd-sub-65+m">0</td><td id="wd-sub-65+f">0</td>
+                            <td id="wd-sub-total">0</td>
+                        </tr>
+
+                        <!-- Dynamic division content -->
+                        <tbody id="wd-division-body"></tbody>
+
+                    </table>
+                    </div>
+                    <div id="wd-pagination"></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-data-card">
+
+                <div class="middle-container1">
+                    <div class="inner-panel1">
+                        <div class="table-header-title">AGE GROUP BY POSITION (STATIONS)</div>
+                        
+                        <div class="table-wrapper">
+                            <table class="dashboard-table" id="positionsTable">
+                                <thead>
+                                    <tr class="totalhired">
+                                        <th class="bold-cell">TOTAL</th>
+                                        <th id="total21_24">0</th>
+                                        <th id="total25_34">0</th>
+                                        <th id="total35_44">0</th>
+                                        <th id="total45_54">0</th>
+                                        <th id="total55_64">0</th>
+                                        <th id="total65_above">0</th>
+                                        <th id="grandTotal">0</th>
+                                    </tr>
+                                    <tr>
+                                        <th>POSITION</th>
+                                        <th>21-24</th>
+                                        <th>25-34</th>
+                                        <th>35-44</th>
+                                        <th>45-54</th>
+                                        <th>55-64</th>
+                                        <th>65 & Above</th>
+                                        <th>TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="positionsTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="paginationContainer"></div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div> 
+
+    <script src="js/common.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/positions-table.js"></script>
+    <script src="js/workforce-diversity.js"></script>
+    <script src="js/cos-charts.js"></script>
+    <script src="js/cosexport.js"></script>
+
+</body>
+</html>

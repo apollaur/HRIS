@@ -1,0 +1,13 @@
+NOTES:
+- Add individual cards for tables and graphs
+- Change the colors, make it more pastel
+- COS ATH - switch colors for the percentages (darker green for higher, lighter for lower)
+- Same css for COS FILLED, VACANT, and Job Order
+
+TO ADD:
+- Drop Down on Filled (Demographics and Age & Sex Distribution) ???
+- Vacant page (Contents: Tables and Graphs)
+- Job Order page (Contents: Tables and Graphs)
+- Booking page (Contents: Tables and Graphs)
+- Add filter / search button on the Dashboard
+- Add Generate Report button per page for reporting 

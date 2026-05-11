@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhilRice HRIS</title>
+    <link rel="stylesheet" href="jo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="cos-page">
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/PhilRice-Logo.png" alt="PhilRice Logo">
+                <div class="logo-text">HRIS</div>
+                <div class="logo-subtitle">HUMAN RESOURCES<br>INFORMATION SYSTEM</div>
+            </div>
+            <nav class="nav-menu">
+                <div class="menu-section-header">Menu</div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/dashboard1.png">
+                    <span><a href="index.html">Dashboard</a></span>
+                </div>
+                
+                <div class="has-dropdown">
+                    <div class="menu-header" onclick="toggleDropdown(this)">
+                        <div class="icon-box">
+                            <img src="img/cos1.png">
+                        </div>
+                        <span><a href="cos.html">COS</a></span>
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    
+                    <div class="submenu">
+                        <div class="submenu-item">
+                            <div class="icon-box">
+                                <img src="img/filled1.png">
+                            </div>
+                            <span><a href="cos-filled.html">Filled</a></span>
+                        </div>
+                        <div class="submenu-item">
+                            <div class="icon-box">
+                                <img src="img/vacant2.png">
+                            </div>
+                            <span><a href="cos-vacant.html">Vacant</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item active">
+                    <img class="icon-box" src="img/jo1.png">
+                    <span><a href="jo.html">Job Order</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/ticket1.png">
+                    <span><a href="booking.html">Booking</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/calendar1.png">
+                    <span><a href="calendar.html">Calendar</a></span>
+                </div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/bell.png">
+                    <span><a href="notifications.html">Notifications</a></span>
+                </div>
+
+                <div class="menu-section-header">Account</div>
+                <div class="nav-item">
+                    <img class="icon-box" src="img/user1.png">
+                    <span><a href="user.html">Account</a></span>
+                </div>
+                <!-- <div class="nav-item">
+                    <img class="icon-box" src="img/signout.png">
+                    <span><a href="#">Sign Out</a></span>
+                </div> -->
+            </nav>
+        </aside>
+
+        <!-- Header -->
+        <div class="page-header">
+            <div class="header-content">
+                <div class="breadcrumb">
+                    <span class="header-text">HRIS</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span class="header-text">Job Order</span>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search for a Station..." id="station-search">
+                    </div>
+                    <button class="export-btn" onclick="exportToPDF()">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>EXPORT TO PDF</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI Cards -->
+        <main class="main-content">
+            <div class="stats-grid">
+                <div class="card">
+                    <div class="card-title">TOTAL SLOTS</div>
+                    <div class="card-body">
+                        <img src="img/ath.png" class="nav-card-icon">
+                        <span class="number">2,060</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">TOTAL HIRED</div>
+                    <div class="card-body">
+                        <img src="img/hired1.png" class="nav-card-icon">
+                        <span class="number">1,713</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">SLOTS REMAINING</div>
+                    <div class="card-body">
+                        <img src="img/vacant.png" class="nav-card-icon">
+                        <span class="number">347</span>
+                    </div>
+                        <p class="note"><i>Note: Slots is based on the CY 2026</i></p>
+                </div>
+              
+                <div class="card">
+                    <div class="card-title">MALE</div>
+                    <div class="card-body">
+                        <img src="img/male.png" class="nav-card-icon">
+                        <span class="number">1,019</span>
+                </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">FEMALE</div>
+                    <div class="card-body">
+                        <img src="img/female.png" class="nav-card-icon">
+                        <span class="number">616</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Date Filter -->
+            <div class="date-picker-container">
+                <div class="date-picker">
+                    <label>Start Date:</label>
+                    <div class="date-input-wrapper">
+                        
+                        <input type="date" id="start-date">
+                    </div>
+                </div>
+                <div class="date-picker">
+                    <label>End Date:</label>
+                    <div class="date-input-wrapper">
+                        
+                        <input type="date" id="end-date">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tables and Graphs -->
+            <div class="main-data-card">
+
+                <div class="metrics-chart">
+
+                    <div class="ath-container">
+                        <div class="ath-header">
+                            <div class="ath-title">Job Order</div>
+                            <div class="ath-subtitle">
+                                <span>PHILIPPINE RICE RESEARCH INSTITUTE (PHILRICE)</span>
+                                <br>
+                                <span>JOB ORDER</span>
+                            </div>
+                        </div>
+
+                        <div class="ath-grid">
+                            <div class="grid-label metrics">METRICS</div>
+
+                            <div class="cell green-1">CES<br><strong>285.19%</strong></div>
+                            <div class="cell green-2">AGUSAN<br><strong>800.00%</strong></div>
+                            <div class="cell green-3">BATAC<br><strong>291.18%</strong></div>
+                            <div class="cell green-4">NEGROS<br><strong>248.78%</strong></div>
+                            <div class="cell green-5">MIDSAYAP<br><strong>685.71%</strong></div>
+
+                            <div class="grid-label utilization">UTILIZATION RATE</div>
+
+                            <div class="cell total-hired">TOTAL HIRED<br><strong>276.03%</strong></div>
+
+                            <div class="cell green-6">ISABELA<br><strong>11.17%</strong></div>
+                            <div class="cell green-7">BICOL<br><strong>9.82%</strong></div>
+                            <div class="cell green-8">CMU<br><strong>3.13%</strong></div>
+                            <div class="cell green-9">LOS BAÑOS<br><strong>4.84%</strong></div>
+                            <div class="cell green-10">SAMAR<br><strong>0.57%</strong></div>
+
+                            <div class="cell vacant">VACANT<br><strong>-176.03%</strong></div>
+                        </div>
+                    </div>
+                    <p class="table-note">This chart shows the distribution of hired Contract of Service (COS) personnel by station. Percentages indicate each station's share of the total hired COS personnel.</p>
+                </div>
+            </div>
+
+            <div class="main-data-card">
+                <div class="middle-container2">
+                    <div class="table-header-title">Job Order: Count by (Fund Class and Station)</div>
+                    <div class="cos-graph-container">
+                        <div class="cos-graph-panel">
+                            <div class="cos-graph-content">
+                                <canvas id="joCountChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="table-wrapper">
+                        <table class="cos-table">
+                            <thead>
+                                <tr><th>STATIONS</th><th>CORPO</th><th>TRUST</th><th>BDD</th><th>RCEF</th><th>NRP</th><th>TOTAL</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>CES</td><td>125</td><td>44</td><td>13</td><td>48</td><td> </td><td>230</td></tr>
+                                <tr><td>AGUSAN</td><td> </td><td> </td><td> </td><td></td><td> </td><td>0</td></tr>
+                                <tr><td>BATAC</td><td>4</td><td>3</td><td> </td><td>5</td><td> </td><td>12</td></tr>
+                                <tr><td>BICOL</td><td>8</td><td>3</td><td>2</td><td>28</td><td> </td><td>41</td></tr>
+                                <tr><td>CMU</td><td>2</td><td> </td><td>11</td><td> </td><td> </td><td>13</td></tr>
+                                <tr><td>ISABELA</td><td>5</td><td> </td><td>13</td><td>14</td><td> </td><td>32</td></tr>
+                                <tr><td>LOS BAÑOS</td><td> </td><td> </td><td>1</td><td>28</td><td> </td><td>43</td></tr>
+                                <tr><td>MIDSAYAP</td><td></td><td>6</td><td>3</td><td> </td><td> </td><td>6</td></tr>
+                                <tr><td>NEGROS</td><td> </td><td>17</td><td>1</td><td> </td><td> </td><td>1</td></tr>
+                                <tr><td>SAMAR</td><td> </td><td> </td><td> </td><td> </td><td> </td><td>0</td></tr>
+                                <tr><td>TOTAL</td><td>161</td><td>50</td><td>44</td><td>123</td><td>0</td><td>378</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="table-note">This chart shows the distribution of hired Contract of Service (COS) personnel by station. Percentages indicate each station's share of the total hired COS personnel.</p>
+
+                    <div class="table-header-title">Job Order: Cost by (Fund Class and Station)</div>
+
+                    <div class="table-wrapper">
+                        <table class="cos-table">
+                            <thead>
+                                <tr><th>STATIONS</th><th>CORPO</th><th>TRUST</th><th>BDD</th><th>RCEF</th><th>NRP</th><th>TOTAL</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>CES</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>AGUSAN</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>BATAC</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>BICOL</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>CMU</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>ISABELA</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>LOS BAÑOS</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>MIDSAYAP</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>NEGROS</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>SAMAR</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                                <tr><td>TOTAL</td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="table-note">This chart shows the distribution of hired Contract of Service (COS) personnel by station. 
+                        Percentages indicate each station’s share of the total hired COS personnel.
+                    </p> 
+                </div>
+            </div>
+
+            <div class="main-data-card">
+
+                <div class="metrics-chart">
+
+                    <div class="ath-container demographics-container">
+                        <div class="ath-header">
+                            <div class="ath-title1">Demographics</div>
+                            <div class="ath-subtitle1">
+                                <span>PHILIPPINE RICE RESEARCH INSTITUTE (PHILRICE)</span>
+                                <br>
+                                <span>UNIQUE (MALE & FEMALE)</span>
+                            </div>
+                        </div>
+
+                        <div class="ath-grid">
+                            <div class="grid-label metrics"> </div>
+
+                            <div class="cell blue-1">CES<br><strong>430</strong></div>
+                            <div class="cell blue-2">AGUSAN<br><strong>38</strong></div>
+                            <div class="cell blue-3">BATAC<br><strong>93</strong></div>
+                            <div class="cell blue-4">NEGROS<br><strong>62</strong></div>
+                            <div class="cell blue-5">MIDSAYAP<br><strong>33</strong></div>
+
+                            <div class="grid-label utilization"> </div>
+
+                            <div class="cell total-male">MALE<br><strong>###</strong></div>
+
+                            <div class="cell blue-6">ISABELA<br><strong>124</strong></div>
+                            <div class="cell blue-6">BICOL<br><strong>102</strong></div>
+                            <div class="cell blue-6">CMU<br><strong>40</strong></div>
+                            <div class="cell blue-6">LOS BAÑOS<br><strong>67</strong></div>
+                            <div class="cell blue-6">SAMAR<br><strong>7</strong></div>
+
+                            <div class="cell total-female">FEMALE<br><strong>###</strong></div>
+                        </div>
+                    </div>
+                        <p class="table-note">This chart shows the distribution of Unique Job Order (JO) personnel by station.</p>
+                </div>
+
+                <div class="demographics-bottom-container">
+                    <div class="demographics-table-panel">
+                        <div class="table-wrapper">
+                            <table class="demographics-table">
+                                <thead>
+                                    <tr><th>SECTOR</th><th>MALE</th><th>FEMALE</th><th>TOTAL</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>GASS</td><td>69</td><td>56</td><td>125</td></tr>
+                                    <tr><td>RESEARCH</td><td>131</td><td>147</td><td>278</td></tr>
+                                    <tr><td>DEV'T</td><td>12</td><td>10</td><td>22</td></tr>
+                                    <tr><td>OED</td><td>2</td><td>0</td><td>2</td></tr>
+                                    <tr><td>RCEF</td><td>86</td><td>25</td><td>111</td></tr>
+                                    <tr><td>TOTAL</td><td>300</td><td>238</td><td>538</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="cos-graph-container">
+                        <div class="cos-graph-panel">
+                            <div class="cos-graph-content">
+                                <canvas id="joDemographicsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-header-title">PER DIVISION</div>
+
+                <div class="division-tables-container">
+                    <!-- First row: 3 tables -->
+                    <div class="division-row-1">
+                        <!-- GASS Table -->
+                        <div class="division-table-wrapper">
+                            <table class="division-table">
+                                <thead>
+                                    <tr><th colspan="4" class="main-header">GASS</th></tr>
+                                    <tr><th class="col-header">DIVISION</th><th class="col-header">MALE</th><th class="col-header">FEMALE</th><th class="col-header">TOTAL</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>ASD</td><td>1</td><td>1</td><td>2</td></tr>
+                                    <tr><td>BDD</td><td>52</td><td>47</td><td>99</td></tr>
+                                    <tr><td>FMD</td><td>1</td><td>0</td><td>1</td></tr>
+                                    <tr><td>ODA</td><td>0</td><td>0</td><td>0</td></tr>
+                                    <tr><td>PPD</td><td>1</td><td>1</td><td>2</td></tr>
+                                    <tr><td>IMSSO</td><td>5</td><td>2</td><td>7</td></tr>
+                                    <tr><td>PMD</td><td>1</td><td>1</td><td>2</td></tr>
+                                    <tr><td>PSMU</td><td>9</td><td>4</td><td>13</td></tr>
+                                    <tr><td>ODEDASF</td><td>0</td><td>0</td><td>0</td></tr>
+                                    <tr><td>LEGAL</td><td>0</td><td>0</td><td>0</td></tr>
+                                    <tr class="total-row"><td>TOTAL</td><td>56</td><td>126</td><td>126</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- RESEARCH Table -->
+                        <div class="division-table-wrapper">
+                            <table class="division-table">
+                                <thead>
+                                    <tr><th colspan="4" class="main-header">RESEARCH</th></tr>
+                                    <tr><th class="col-header">DIVISION</th><th class="col-header">MALE</th><th class="col-header">FEMALE</th><th class="col-header">TOTAL</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>ASPPD</td><td>26</td><td>38</td><td>64</td></tr>
+                                    <tr><td>CBC</td><td>23</td><td>30</td><td>53</td></tr>
+                                    <tr><td>CPD</td><td>3</td><td>0</td><td>3</td></tr>
+                                    <tr><td>DAC</td><td>0</td><td>0</td><td>0</td></tr>
+                                    <tr><td>GRD</td><td>13</td><td>30</td><td>43</td></tr>
+                                    <tr><td>ODR</td><td>5</td><td>1</td><td>6</td></tr>
+                                    <tr><td>PBBD</td><td>83</td><td>91</td><td>174</td></tr>
+                                    <tr><td>RCFSD</td><td>7</td><td>2</td><td>9</td></tr>
+                                    <tr><td>REMD</td><td>9</td><td>2</td><td>11</td></tr>
+                                    <tr><td>SED</td><td>1</td><td>1</td><td>2</td></tr>
+                                    <tr class="total-row"><td>TOTAL</td><td>170</td><td>195</td><td>365</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- DEVELOPMENT Table -->
+                        <div class="division-table-wrapper">
+                            <table class="division-table">
+                                <thead>
+                                    <tr><th colspan="4" class="main-header">DEVELOPMENT</th></tr>
+                                    <tr><th class="col-header">DIVISION</th><th class="col-header">MALE</th><th class="col-header">FEMALE</th><th class="col-header">TOTAL</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>ODEDD</td><td>1</td><td>1</td><td>2</td></tr>
+                                    <tr><td>DEVCOM</td><td>2</td><td>5</td><td>7</td></tr>
+                                    <tr><td>GAD</td><td>0</td><td>0</td><td>0</td></tr>
+                                    <tr><td>ISD</td><td>2</td><td>1</td><td>3</td></tr>
+                                    <tr><td>ODD</td><td>2</td><td>0</td><td>2</td></tr>
+                                    <tr><td>COMREL</td><td>0</td><td>0</td><td>0</td></tr>
+                                    <tr><td>TMSD</td><td>0</td><td>0</td><td>0</td></tr>
+                                    <tr><td>MRPMO</td><td>6</td><td>3</td><td>9</td></tr>
+                                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                                    <tr class="total-row"><td>TOTAL</td><td>10</td><td>8</td><td>18</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Second row: 2 centered tables -->
+                    <div class="division-row-2">
+                        <!-- OED Table -->
+                        <div class="division-table-wrapper">
+                            <table class="division-table">
+                                <thead>
+                                    <tr><th colspan="4" class="main-header">OED</th></tr>
+                                    <tr><th class="col-header">DIVISION</th><th class="col-header">MALE</th><th class="col-header">FEMALE</th><th class="col-header">TOTAL</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>OED</td><td>1</td><td>1</td><td>2</td></tr>
+                                    <tr><td>IAU</td><td>2</td><td>5</td><td>7</td></tr>
+                                    <tr><td>COA</td><td>0</td><td>0</td><td>0</td></tr>
+                                    <tr><td>CSD</td><td>2</td><td>1</td><td>3</td></tr>
+                                    <tr><td>RBS</td><td>2</td><td>0</td><td>2</td></tr>
+                                    <tr class="total-row"><td>TOTAL</td><td>10</td><td>8</td><td>18</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- RCEF-PMO Table -->
+                        <div class="division-table-wrapper">
+                            <table class="division-table">
+                                <thead>
+                                    <tr><th colspan="4" class="main-header">DEVELOPMENT</th></tr>
+                                    <tr><th class="col-header">DIVISION</th><th class="col-header">MALE</th><th class="col-header">FEMALE</th><th class="col-header">TOTAL</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>RCEF-PMO</td><td>86</td><td>25</td><td>111</td></tr>
+                                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                                    <tr class="total-row"><td>TOTAL</td><td>86</td><td>25</td><td>111</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="table-header-title no-bottom-margin">PER STATION</div>
+                    <div class="station-table-wrapper">
+                        <table class="division-table">
+                            <thead>
+                                <tr><th colspan="6" class="main-header">STATION</th></tr>
+                                <tr><th class="col-header">SLOTS</th><th class="col-header">STATION</th><th class="col-header">MALE</th><th class="col-header">FEMALE</th><th class="col-header">TOTAL</th><th class="col-header">SLOTS REMAINING</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>243</td><td>CES</td><td>214</td><td>186</td><td>430</td><td>-187</td></tr>
+                                <tr><td>6</td><td>AGUSAN</td><td>25</td><td>13</td><td>38</td><td>-32</td></tr>
+                                <tr><td>34</td><td>BATAC</td><td>55</td><td>38</td><td>93</td><td>-59</td></tr>
+                                <tr><td>41</td><td>NEGROS</td><td>36</td><td>26</td><td>62</td><td>-21</td></tr>
+                                <tr><td>7</td><td>MIDSAYAP</td><td>23</td><td>10</td><td>33</td><td>-26</td></tr>
+                                <tr><td>56</td><td>LOS BAÑOS</td><td>44</td><td>23</td><td>67</td><td>-11</td></tr>
+                                <tr><td>53</td><td>ISABELA</td><td>78</td><td>46</td><td>124</td><td>-71</td></tr>
+                                <tr><td>44</td><td>BICOL</td><td>39</td><td>63</td><td>102</td><td>-58</td></tr>
+                                <tr><td>18</td><td>CMU</td><td>29</td><td>11</td><td>40</td><td>-22</td></tr>
+                                <tr><td>7</td><td>SAMAR</td><td>7</td><td>0</td><td>7</td><td>0</td></tr>
+                                <tr class="total-row"><td>509</td><td>TOTAL</td><td>580</td><td>416</td><td>996</td><td>-487</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                        <p class="table-note">Slot allocation is based on CY 2026 only. Male and female counts adjust dynamically according to the selected date range.</p>
+                </div>
+            </div>
+
+            <div class="main-data-card">
+                <div class="ath-header">
+                    <div class="ath-title">Age Group</div>
+                    <div class="ath-subtitle">
+                        <span>PHILIPPINE RICE RESEARCH INSTITUTE (PHILRICE)</span>
+                        <br>
+                        <span>UNIQUE (MALE & FEMALE)</span>
+                    </div>
+                </div>
+                <div class="table-header-title">WORKFORCE DIVERSITY (AGE GROUP AND SEX DISTRIBUTION PER SECTOR)</div>
+
+                <div class="table-container">
+                    <table class="custom-table">
+
+                        <!-- TOP TOTAL -->
+                        <tr class="top-total">
+                            <th>TOTAL</th>
+                            <th colspan="2">33</th>
+                            <th colspan="2">397</th>
+                            <th colspan="2">152</th>
+                            <th colspan="2">94</th>
+                            <th colspan="2">51</th>
+                            <th colspan="2">12</th>
+                            <th>739</th>
+                        </tr>
+
+                        <!-- AGE GROUPS -->
+                        <tr class="age-group">
+                            <th rowspan="2">DIVISION</th>
+                            <th colspan="2">21-24</th>
+                            <th colspan="2">25-34</th>
+                            <th colspan="2">35-44</th>
+                            <th colspan="2">45-54</th>
+                            <th colspan="2">55-64</th>
+                            <th colspan="2">65 & Above</th>
+                            <th rowspan="2">TOTAL</th>
+                        </tr>
+
+                        <tr class="sub-header">
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                        </tr>
+
+                        <tr>
+                            <td>CES</td>
+                            <td>1</td><td>4</td>
+                            <td>2</td><td>9</td>
+                            <td>2</td><td>2</td>
+                            <td>2</td><td>0</td>
+                            <td>0</td><td>1</td>
+                            <td>0</td><td>0</td>
+                            <td>23</td>
+                        </tr>
+
+                        <tr>
+                            <td>AGUSAN</td>
+                            <td>0</td><td>0</td>
+                            <td>10</td><td>9</td>
+                            <td>7</td><td>1</td>
+                            <td>9</td><td>1</td>
+                            <td>6</td><td>1</td>
+                            <td>0</td><td>0</td>
+                            <td>44</td>
+                        </tr>
+
+                        <tr>
+                            <td>BATAC</td>
+                            <td>1</td><td>0</td>
+                            <td>2</td><td>13</td>
+                            <td>0</td><td>2</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>18</td>
+                        </tr>
+
+                        <tr>
+                            <td>BICOL</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td>
+                        </tr>
+
+                        <tr>
+                            <td>CMU</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td>
+                        </tr>
+
+                        <tr>
+                            <td>ISABELA</td>
+                            <td>0</td><td>0</td>
+                            <td>10</td><td>9</td>
+                            <td>7</td><td>1</td>
+                            <td>9</td><td>1</td>
+                            <td>6</td><td>1</td>
+                            <td>0</td><td>0</td>
+                            <td>44</td>
+                        </tr>
+
+                        <tr>
+                            <td>LOS BAÑOS</td>
+                            <td>2</td><td>0</td>
+                            <td>4</td><td>14</td>
+                            <td>1</td><td>1</td>
+                            <td>0</td><td>1</td>
+                            <td>1</td><td>1</td>
+                            <td>0</td><td>0</td>
+                            <td>25</td>
+                        </tr>
+
+                        <tr>
+                            <td>MIDSAYAP</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>1</td>
+                        </tr>
+
+                        <tr>
+                            <td>NEGROS</td>
+                            <td>0</td><td>0</td>
+                            <td>1</td><td>3</td>
+                            <td>1</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>4</td>
+                        </tr>
+
+                        <tr>
+                            <td>SAMAR</td>
+                            <td>0</td><td>0</td>
+                            <td>1</td><td>1</td>
+                            <td>1</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>3</td>
+                        </tr>
+
+                        <!-- SUBTOTAL -->
+                        <tr class="subtotal">
+                            <td>SUBTOTAL</td>
+                            <td>15</td><td>18</td>
+                            <td>187</td><td>210</td>
+                            <td>113</td><td>39</td>
+                            <td>73</td><td>21</td>
+                            <td>47</td><td>4</td>
+                            <td>9</td><td>3</td>
+                            <td>739</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-header-title">WORKFORCE DIVERSITY (AGE GROUP AND SEX DISTRIBUTION PER STATION)</div>
+
+                <div class="table-container">
+                    <table class="custom-table">
+
+                        <!-- TOP TOTAL -->
+                        <tr class="top-total">
+                            <th>TOTAL</th>
+                            <th colspan="2">33</th>
+                            <th colspan="2">397</th>
+                            <th colspan="2">152</th>
+                            <th colspan="2">94</th>
+                            <th colspan="2">51</th>
+                            <th colspan="2">12</th>
+                            <th>739</th>
+                        </tr>
+
+                        <!-- AGE GROUPS -->
+                        <tr class="age-group">
+                            <th rowspan="2">DIVISION</th>
+                            <th colspan="2">21-24</th>
+                            <th colspan="2">25-34</th>
+                            <th colspan="2">35-44</th>
+                            <th colspan="2">45-54</th>
+                            <th colspan="2">55-64</th>
+                            <th colspan="2">65 & Above</th>
+                            <th rowspan="2">TOTAL</th>
+                        </tr>
+
+                        <tr class="sub-header">
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                            <th>MALE</th><th>FEMALE</th>
+                        </tr>
+
+                        <tr>
+                            <td>CES</td>
+                            <td>1</td><td>4</td>
+                            <td>2</td><td>9</td>
+                            <td>2</td><td>2</td>
+                            <td>2</td><td>0</td>
+                            <td>0</td><td>1</td>
+                            <td>0</td><td>0</td>
+                            <td>23</td>
+                        </tr>
+
+                        <tr>
+                            <td>AGUSAN</td>
+                            <td>0</td><td>0</td>
+                            <td>10</td><td>9</td>
+                            <td>7</td><td>1</td>
+                            <td>9</td><td>1</td>
+                            <td>6</td><td>1</td>
+                            <td>0</td><td>0</td>
+                            <td>44</td>
+                        </tr>
+
+                        <tr>
+                            <td>BATAC</td>
+                            <td>1</td><td>0</td>
+                            <td>2</td><td>13</td>
+                            <td>0</td><td>2</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>18</td>
+                        </tr>
+
+                        <tr>
+                            <td>BICOL</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td>
+                        </tr>
+
+                        <tr>
+                            <td>CMU</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td>
+                        </tr>
+
+                        <tr>
+                            <td>ISABELA</td>
+                            <td>0</td><td>0</td>
+                            <td>10</td><td>9</td>
+                            <td>7</td><td>1</td>
+                            <td>9</td><td>1</td>
+                            <td>6</td><td>1</td>
+                            <td>0</td><td>0</td>
+                            <td>44</td>
+                        </tr>
+
+                        <tr>
+                            <td>LOS BAÑOS</td>
+                            <td>2</td><td>0</td>
+                            <td>4</td><td>14</td>
+                            <td>1</td><td>1</td>
+                            <td>0</td><td>1</td>
+                            <td>1</td><td>1</td>
+                            <td>0</td><td>0</td>
+                            <td>25</td>
+                        </tr>
+
+                        <tr>
+                            <td>MIDSAYAP</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>1</td>
+                        </tr>
+
+                        <tr>
+                            <td>NEGROS</td>
+                            <td>0</td><td>0</td>
+                            <td>1</td><td>3</td>
+                            <td>1</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>4</td>
+                        </tr>
+
+                        <tr>
+                            <td>SAMAR</td>
+                            <td>0</td><td>0</td>
+                            <td>1</td><td>1</td>
+                            <td>1</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>0</td><td>0</td>
+                            <td>3</td>
+                        </tr>
+
+                        <!-- SUBTOTAL -->
+                        <tr class="subtotal">
+                            <td>SUBTOTAL</td>
+                            <td>15</td><td>18</td>
+                            <td>187</td><td>210</td>
+                            <td>113</td><td>39</td>
+                            <td>73</td><td>21</td>
+                            <td>47</td><td>4</td>
+                            <td>9</td><td>3</td>
+                            <td>739</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/jo-charts.js"></script>
+    <script src="js/joexport.js"></script>
+
+</body>
+</html>
